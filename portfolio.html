@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matras Projects — Официальное Портфолио</title>
+    <meta name="description" content="Официальное портфолио Matras Projects: модификации World Soccer Champs, игры и другие проекты.">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --status-green: #4ade80;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        /* Верхняя шапка */
+        header {
+            background-color: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        /* Основной контент */
+        main {
+            flex: 1;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Главная страница */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(30, 41, 59, 0.5) 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Карточки проектов и контактов */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .info-list li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .info-list strong {
+            color: var(--text-main);
+        }
+
+        .btn-link {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(56, 189, 248, 0.15);
+            color: var(--accent-color);
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-link:active {
+            background-color: var(--accent-color);
+            color: #0f172a;
+        }
+
+        /* Нижнее навигационное меню */
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 65px;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            width: 33.33%;
+        }
+
+        .nav-btn .icon {
+            font-size: 1.3rem;
+            margin-bottom: 3px;
+        }
+
+        .nav-btn.active {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Matras Projects</h1>
+    </header>
+
+    <main>
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <h2>Добро пожаловать!</h2>
+                <p>Это официальное портфолио Матраса. Здесь вы можете увидеть модификации на WSC, игры и так далее.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="tab-content">
+            <h2 style="margin-bottom: 8px;">Мои Проекты 📔</h2>
+            <div class="card-grid">
+
+                <div class="card">
+                    <div>
+                        <h3>Мод «Сезон 2020» на WSC</h3>
+                        <ul class="info-list">
+                            <li><strong>Версия:</strong> 11.2 v6.4</li>
+                            <li><strong>Статус:</strong> Выпущен / обновляется</li>
+                            <li><strong>Дата выхода:</strong> 29.08.2026</li>
+                            <li><strong>Последнее обновление:</strong> 30.08.2026</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/WSCMODS_STUDIO/520" target="_blank" class="btn-link">Скачать / Посмотреть</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Мод с подписчиками на WSC</h3>
+                        <ul class="info-list">
+                            <li><strong>Версия:</strong> 11.2 v4.0</li>
+                            <li><strong>Статус:</strong> Выпущен / обновляется</li>
+                            <li><strong>Дата выхода:</strong> 29.07.2026</li>
+                            <li><strong>Последнее обновление:</strong> ❌</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/WSCMODS_STUDIO/417" target="_blank" class="btn-link">Скачать / Посмотреть</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Мод «Сезон 2006» на WSC</h3>
+                        <ul class="info-list">
+                            <li><strong>Версия:</strong> 11.2 v3.0</li>
+                            <li><strong>Статус:</strong> Выпущен</li>
+                            <li><strong>Дата выхода:</strong> 08.07.2026</li>
+                            <li><strong>Последнее обновление:</strong> ❌</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/WSCMODS_STUDIO/360" target="_blank" class="btn-link">Скачать / Посмотреть</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Взлом 11.2 на WSC</h3>
+                        <ul class="info-list">
+                            <li><strong>Версия:</strong> 11.2 v1.0</li>
+                            <li><strong>Статус:</strong> Выпущен</li>
+                            <li><strong>Дата выхода:</strong> 05.07.2026</li>
+                            <li><strong>Последнее обновление:</strong> ❌</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/WSCMODS_STUDIO/332" target="_blank" class="btn-link">Скачать / Посмотреть</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Футбольный менеджер «Wreble»</h3>
+                        <ul class="info-list">
+                            <li><strong>Версия:</strong> v1.3.1</li>
+                            <li><strong>Статус:</strong> Альфа-версия / обновляется</li>
+                            <li><strong>Дата выхода:</strong> 19.08.2026</li>
+                            <li><strong>Последнее обновление:</strong> 20.08.2026</li>
+                        </ul>
+                    </div>
+                    <a href="https://t.me/wreble/15" target="_blank" class="btn-link">Перейти к игре</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="tab-content">
+            <h2 style="margin-bottom: 8px;">Связаться со мной 🗣</h2>
+            <div class="card-grid">
+
+                <div class="card">
+                    <div>
+                        <h3>Разработчик / Матрас</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 12px;">Личный контакт для связи и вопросов.</p>
+                    </div>
+                    <a href="https://t.me/AnttoineGriezmann" target="_blank" class="btn-link">Написать в Telegram</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Канал с WSC модификациями</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 12px;">Все релизы модов, патчей и обновления.</p>
+                    </div>
+                    <a href="https://t.me/WSCMODS_PIDORASI" target="_blank" class="btn-link">Перейти в канал</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Канал футбольной игры</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 12px;">Новости и патчи футбольного менеджера Wreble.</p>
+                    </div>
+                    <a href="https://t.me/Wreble" target="_blank" class="btn-link">Перейти в канал</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <nav>
+        <button class="nav-btn active" onclick="openTab(event, 'home')">
+            <span class="icon">🏠</span>
+            <span>Главная</span>
+        </button>
+        <button class="nav-btn" onclick="openTab(event, 'projects')">
+            <span class="icon">📔</span>
+            <span>Проекты</span>
+        </button>
+        <button class="nav-btn" onclick="openTab(event, 'contact')">
+            <span class="icon">🗣</span>
+            <span>Связь</span>
+        </button>
+    </nav>
+
+    <script>
+        function openTab(evt, tabName) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
